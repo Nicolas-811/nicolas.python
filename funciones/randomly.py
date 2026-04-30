@@ -58,20 +58,72 @@ import random
 # y la distancia varia entre 60 y 190
 # mostar el final, el golpe mas fuerte
 
-jugador1=random.randint(60,190)
-jugador2=random.randint(60,190)
-jugador3=random.randint(60,190)
+import random
 
-print("jugador 1: ", jugador1)
-print("jugador 2: ", jugador2)
-print("jugador 3: ", jugador3)
+# nombre1 = input("Ingresa el nombre del jugador 1: ")
+# nombre2 = input("Ingresa el nombre del jugador 2: ")
+# nombre3 = input("Ingresa el nombre del jugador 3: ")
 
-if jugador1>jugador2 and jugador1>jugador3:
-    print("El jugador 1 es el ganador con un golpe de: ", jugador1)
-elif jugador2>jugador1 and jugador2>jugador3:
-    print("El jugador 2 es el ganador con un golpe de: ", jugador2)
+# jugador1=random.randint(60,190)
+# jugador2=random.randint(60,190)
+# jugador3=random.randint(60,190)
+
+# print(nombre1 + ": ", jugador1)
+# print(nombre2 + ": ", jugador2)
+# print(nombre3 + ": ", jugador3)
+
+# if jugador1>jugador2 and jugador1>jugador3:
+#     print("El ganador es " + nombre1 + " con un golpe de: ", jugador1)
+# elif jugador2>jugador1 and jugador2>jugador3:
+#     print("El ganador es " + nombre2 + " con un golpe de: ", jugador2)
+# else:
+#     print("El ganador es " + nombre3 + " con un golpe de: ", jugador3)
+
+
+#KILLER INSTINCT
+
+# Dos peleadores se piden al inicio de la pelea
+# cada peleador inica con 100 de hp
+# se debe hacer una pelea por turnos
+# y cada golpe varia entre 7 y 18
+# se termina el match cuando uno de los dos 
+# tiene su hp menor o igual a 0
+# se debe mostrar el ganador final
+#BONUS: mostrar la barra de energia de cada peleador
+
+j1=input("ingrese el nombre del jugador 1: ")
+j2=input("ingrese el nombre del jugador 2: ")
+j1p1_hp=100
+j1p2_hp=100
+j1p1=random.randint(7,18)
+j1p2=random.randint(7,18)
+if j1p1>j1p2:
+    j1p2_hp-=j1p1
+    print(j1, "golpeo a ", j2, "con un golpe de: ", j1p1)
+    print(j2, "tiene un golpe de: ", j1p2)
+    print(j1, "tiene ", j1p1_hp, "de hp")
+    print(j2, "tiene ", j1p2_hp, "de hp")
+elif j1p2>j1p1:
+    print(j2, "golpeo a ", j1, "con un golpe de: ", j1p2)
+    print(j1, "tiene un golpe de: ", j1p1)
+    j1p1_hp-=j1p2
+    print(j1, "tiene ", j1p1_hp, "de hp")
+    print(j2, "tiene ", j1p2_hp, "de hp")
 else:
-    print("El jugador 3 es el ganador con un golpe de: ", jugador3)
+    print("empate, ambos golpearon con la misma fuerza")
+    print("ambos jugadores tiene ", j1p1_hp, "de hp")
+    print("ambos jugadores tiene ", j1p2_hp, "de hp")
+
+
+
+
+
+# turno=1
+# if turno%2==0:
+#     print("Turno uno")
+# else:
+#     print("Turno dos")
+
 
 
 
