@@ -57,7 +57,7 @@
 def validar_lista_numeros():
     while True:
         try:
-            entrada=input("Ingrese una lista de números enteros separados por espacios: "))
+            entrada: str=input("Ingrese una lista de números enteros separados por espacios: ")
 
             lista_numeros=[]
 
