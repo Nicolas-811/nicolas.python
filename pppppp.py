@@ -82,133 +82,316 @@ Fodesa 12,5%
 
 '''
 
-pacientes = [
-    {
-        "nombre": "Aquiles Baeza",
-        "prevision": "Fonasa",
-        "temperatura": 34.6,
-        "grave": False
-    }
+# pacientes = [
+#     {
+#         "nombre": "Aquiles Baeza",
+#         "prevision": "Fonasa",
+#         "temperatura": 34.6,
+#         "grave": False
+#     }
+# ]
+
+# def validarEstado(temp):
+#     return temp > 39
+
+# def mostrarPacientes():
+#     if len(pacientes) == 0:
+#         print("No hay pacientes.")
+#     else:
+#         for i, p in enumerate(pacientes, start=1):
+#             print(f"{i}. {p}")
+
+# def agregarPaciente():
+
+#     while True:
+#         nombre = input("Ingrese nombre: ").strip()
+
+#         if len(nombre) > 8:
+#             break
+
+#         print("El nombre debe tener más de 8 caracteres.")
+
+#     while True:
+#         prevision = input("Ingrese previsión (Fonasa, Isapre o Fodesa): ").capitalize()
+
+#         if prevision in ["Fonasa", "Isapre", "Fodesa"]:
+#             break
+
+#         print("Previsión inválida")
+
+#     temperatura = float(input("Ingrese temperatura: "))
+
+#     pacientes.append({
+#         "nombre": nombre,
+#         "prevision": prevision,
+#         "temperatura": temperatura,
+#         "grave": validarEstado(temperatura)
+#     })
+
+#     print("Paciente agregado correctamente")
+
+# def eliminarPaciente():
+#     mostrarPacientes()
+
+#     paciente = int(input("¿Qué paciente desea eliminar?: "))
+
+#     pacientes.pop(paciente - 1)
+
+#     print("Paciente eliminado")
+
+# def tomarTemperatura():
+
+#     mostrarPacientes()
+
+#     paciente = int(input("Seleccione paciente: "))
+
+#     temperatura = float(input("Nueva temperatura: "))
+
+#     pacientes[paciente - 1]["temperatura"] = temperatura
+#     pacientes[paciente - 1]["grave"] = validarEstado(temperatura)
+
+#     print("Temperatura actualizada")
+
+# def cobrarAtencion():
+
+#     mostrarPacientes()
+
+#     paciente = int(input("¿Qué paciente va a pagar?: "))
+
+#     prevision = pacientes[paciente - 1]["prevision"]
+
+#     valor = 25000
+
+#     match prevision:
+#         case "Fonasa":
+#             total = valor * 0.46
+#         case "Isapre":
+#             total = valor * 0.73
+#         case "Fodesa":
+#             total = valor * 0.875
+
+#     print(f"Total a pagar: ", total)
+
+# while True:
+
+#     try:
+
+#         print("CENTRO MÉDICO")
+#         print("1. Agregar paciente")
+#         print("2. Eliminar paciente")
+#         print("3. Tomar temperatura")
+#         print("4. Cobrar atención")
+#         print("5. Mostrar pacientes")
+#         print("6. Salir")
+
+#         op = int(input("Seleccione una opción: "))
+
+#         match op:
+
+#             case 1:
+#                 agregarPaciente()
+
+#             case 2:
+#                 eliminarPaciente()
+
+#             case 3:
+#                 tomarTemperatura()
+
+#             case 4:
+#                 cobrarAtencion()
+
+#             case 5:
+#                 mostrarPacientes()
+
+#             case 6:
+#                 print("Saliendo...")
+#                 break
+
+#             case _:
+#                 print("Opción inválida.")
+
+#     except Exception as e:
+#         print("Error:", e)
+
+
+
+
+
+
+
+
+
+notas=[4.6, 7.0, 3.4, 6.6, 3.9]
+
+#crear una funcion para poder pasarle la lista
+#como parametro y mostrar el promedio
+#mostrar si aprueba o no
+
+def promedio_notas(lista):
+    return sum(lista) / len(lista)
+
+promedio=promedio_notas(notas)
+
+print("promedio:", promedio)
+
+if promedio>= 4.0:
+    print("Aprobó")
+else:
+    print("Reprobó")
+
+#"O"
+
+def calcularprom(n):
+    total=0
+    for uwu in n:
+        total+=uwu
+    prom=total/len(n)
+    return round(prom, 1)
+print("El promedio es: ", calcularprom(notas))
+
+print(max(notas))
+print(min(notas))
+
+
+
+
+peliculas=[
+    {"titulo": "inception", "director": "christopher nolan",
+     "genero": "ciencia ficcion", "año": 2010},
+    {"titulo": "jurassic park", "director": "steven spilberg",
+     "genero": "ciencia ficcion", "año": 1993},
+    {"titulo": "seven", "director": "david fincher",
+     "genero": "thiller", "año": 1997},
 ]
 
-def validarEstado(temp):
-    return temp > 39
 
-def mostrarPacientes():
-    if len(pacientes) == 0:
-        print("No hay pacientes.")
+
+
+
+
+# crear un gestor de peliculas
+# el titulo debe tener mas de 2 caracteres
+# el año debe ser superior a 1960 y debe ser inferior al año actual
+# el director debe tener nombre y apellido
+# mostrar el siguiente menu
+
+'''
+1.ingresar pelicula
+2.quitar pelicula
+3.actualizar pelicula
+4.mostrar pelicula
+5.mostrar solo los titulos
+6. ordenar por año(decreciente)
+7.salir
+'''
+
+peliculas = [
+    {"titulo": "Titanic", "anio": 1997, "director": "James Cameron"}
+]
+
+# Validar título
+def validarTitulo(titulo):
+    return len(titulo) > 2
+
+# Validar año
+def validarAnio(anio):
+    return anio > 1960 and anio <= 2025
+
+# Validar director
+def validarDirector(director):
+    return len(director.split()) >= 2
+
+# Mostrar películas
+def mostrarPeliculas():
+    if len(peliculas) == 0:
+        print("No hay películas registradas")
     else:
-        for i, p in enumerate(pacientes, start=1):
+        for i, p in enumerate(peliculas, start=1):
             print(f"{i}. {p}")
 
-def agregarPaciente():
+# Ingresar película
+def agregarPelicula():
+    titulo = input("Ingrese título: ")
 
-    while True:
-        nombre = input("Ingrese nombre: ").strip()
+    if not validarTitulo(titulo):
+        print("Título inválido")
+        return
 
-        if len(nombre) > 8:
-            break
+    anio = int(input("Ingrese año: "))
 
-        print("El nombre debe tener más de 8 caracteres.")
+    if not validarAnio(anio):
+        print("Año inválido")
+        return
 
-    while True:
-        prevision = input("Ingrese previsión (Fonasa, Isapre o Fodesa): ").capitalize()
+    director = input("Ingrese director: ")
 
-        if prevision in ["Fonasa", "Isapre", "Fodesa"]:
-            break
+    if not validarDirector(director):
+        print("Debe ingresar nombre y apellido")
+        return
 
-        print("Previsión inválida")
-
-    temperatura = float(input("Ingrese temperatura: "))
-
-    pacientes.append({
-        "nombre": nombre,
-        "prevision": prevision,
-        "temperatura": temperatura,
-        "grave": validarEstado(temperatura)
+    peliculas.append({
+        "titulo": titulo,
+        "anio": anio,
+        "director": director
     })
 
-    print("Paciente agregado correctamente")
+    print("Película agregada")
 
-def eliminarPaciente():
-    mostrarPacientes()
+# Eliminar película
+def eliminarPelicula():
+    mostrarPeliculas()
+    pos = int(input("Número de película a eliminar: "))
+    peliculas.pop(pos - 1)
 
-    paciente = int(input("¿Qué paciente desea eliminar?: "))
+# Actualizar película
+def actualizarPelicula():
+    mostrarPeliculas()
+    pos = int(input("Número de película a actualizar: "))
 
-    pacientes.pop(paciente - 1)
+    peliculas[pos-1]["titulo"] = input("Nuevo título: ")
+    peliculas[pos-1]["anio"] = int(input("Nuevo año: "))
+    peliculas[pos-1]["director"] = input("Nuevo director: ")
 
-    print("Paciente eliminado")
+    print("Película actualizada")
 
-def tomarTemperatura():
+# Mostrar solo títulos
+def mostrarTitulos():
+    for p in peliculas:
+        print(p["titulo"])
 
-    mostrarPacientes()
+# Ordenar por año descendente
+def ordenarAnio():
+    peliculas.sort(key=lambda x: x["anio"], reverse=True)
 
-    paciente = int(input("Seleccione paciente: "))
+    print("Películas ordenadas")
 
-    temperatura = float(input("Nueva temperatura: "))
-
-    pacientes[paciente - 1]["temperatura"] = temperatura
-    pacientes[paciente - 1]["grave"] = validarEstado(temperatura)
-
-    print("Temperatura actualizada")
-
-def cobrarAtencion():
-
-    mostrarPacientes()
-
-    paciente = int(input("¿Qué paciente va a pagar?: "))
-
-    prevision = pacientes[paciente - 1]["prevision"]
-
-    valor = 25000
-
-    match prevision:
-        case "Fonasa":
-            total = valor * 0.46
-        case "Isapre":
-            total = valor * 0.73
-        case "Fodesa":
-            total = valor * 0.875
-
-    print(f"Total a pagar: ${total:.0f}")
-
+# Menú
 while True:
+    print("1. Ingresar película")
+    print("2. Quitar película")
+    print("3. Actualizar película")
+    print("4. Mostrar películas")
+    print("5. Mostrar solo títulos")
+    print("6. Ordenar por año (decreciente)")
+    print("7. Salir")
 
-    try:
+    op = int(input("Seleccione una opción: "))
 
-        print("CENTRO MÉDICO")
-        print("1. Agregar paciente")
-        print("2. Eliminar paciente")
-        print("3. Tomar temperatura")
-        print("4. Cobrar atención")
-        print("5. Mostrar pacientes")
-        print("6. Salir")
-
-        op = int(input("Seleccione una opción: "))
-
-        match op:
-
-            case 1:
-                agregarPaciente()
-
-            case 2:
-                eliminarPaciente()
-
-            case 3:
-                tomarTemperatura()
-
-            case 4:
-                cobrarAtencion()
-
-            case 5:
-                mostrarPacientes()
-
-            case 6:
-                print("Saliendo...")
-                break
-
-            case _:
-                print("Opción inválida.")
-
-    except Exception as e:
-        print("Error:", e)
+    match op:
+        case 1:
+            agregarPelicula()
+        case 2:
+            eliminarPelicula()
+        case 3:
+            actualizarPelicula()
+        case 4:
+            mostrarPeliculas()
+        case 5:
+            mostrarTitulos()
+        case 6:
+            ordenarAnio()
+        case 7:
+            print("Saliendo...")
+            break
+        case _:
+            print("Opción inválida")
